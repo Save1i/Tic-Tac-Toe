@@ -1,0 +1,124 @@
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+
+.invisible {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.container {
+  max-width: 1220px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  height: 100%;
+}
+
+.welcome__page {
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.welcome__text {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 800;
+  color: rgb(0, 20, 56);
+}
+
+.start__btn {
+  height: 40px;
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
+
+.start__btn:active {
+  height: 40px;
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(177, 214, 247);
+  transition: background-color 0.1s linear;
+}
+
+.start__text {
+  font-size: 15px;
+  font-weight: 500;
+  color: aliceblue;
+}
+
+.game__page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.game__zone {
+  margin: 0 auto;
+  max-height: 600px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.game__board {
+  max-width: 400px;
+  max-height: 400px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  grid-template-rows: repeat(3, minmax(100px, 1fr));
+  gap: 2px;
+}
+
+.cell {
+  background-color: rgb(111, 183, 255);
+}
