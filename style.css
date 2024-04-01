@@ -121,4 +121,18 @@ body {
 
 .cell {
   background-color: rgb(111, 183, 255);
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.o {
+  background-image: url(Ellipse.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.x {
+  background-image: url(x.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
