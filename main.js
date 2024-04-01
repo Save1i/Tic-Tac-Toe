@@ -3,12 +3,13 @@ const welcomePage = document.querySelector(".welcome__page");
 const gamePage = document.querySelector(".game__page");
 const cells = document.querySelectorAll("#cell");
 
-let gameDeck = { 1: ["0", "1", "2"], 2: ["3", "4", "5"], 3: ["6", "7", "8"] };
+let gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
 
 console.log(gameDeck[1][0]);
 let firstPlayer = 0;
 
-function gameDeckObject(x, cell) {
+function gameDeckObject(dataX, cell) {
+  let x = parseInt(dataX);
   for (let key in gameDeck) {
     if (gameDeck.hasOwnProperty(key)) {
       // console.log(key);
@@ -34,7 +35,12 @@ function gameDeckObject(x, cell) {
   seeWhoWin();
 }
 
+// console.log(allStrings);
+
 function seeWhoWin() {
+  let allStrings = Object.keys(gameDeck).every((key) =>
+    gameDeck[key].every((value) => typeof value === "string")
+  );
   for (let key in gameDeck) {
     if (gameDeck.hasOwnProperty(key)) {
       // console.log(key);
@@ -52,10 +58,12 @@ function seeWhoWin() {
       ) {
         console.log("First player is Win!");
         firstPlayer = 0;
-        gameDeck = { 1: ["0", "1", "2"], 2: ["3", "4", "5"], 3: ["6", "7", "8"] };
-        cells.forEach((cell) => {
-          cell.classList.remove("x", "o");
-        });
+        gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
+        setTimeout(() => {
+          cells.forEach((cell) => {
+            cell.classList.remove("x", "o");
+          });
+        }, 100);
       } else if (
         (a[0] == "o" && a[1] == "o" && a[2] == "o") ||
         (b[1][0] == "o" && b[2][0] == "o" && b[3][0] == "o") ||
@@ -66,10 +74,24 @@ function seeWhoWin() {
       ) {
         console.log("Second player is Win!");
         firstPlayer = 0;
-        gameDeck = { 1: ["0", "1", "2"], 2: ["3", "4", "5"], 3: ["6", "7", "8"] };
-        cells.forEach((cell) => {
-          cell.classList.remove("x", "o");
-        });
+        gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
+        setTimeout(() => {
+          cells.forEach((cell) => {
+            cell.classList.remove("x", "o");
+          });
+        }, 100);
+      } else if (allStrings) {
+        firstPlayer = 0;
+        gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
+        setTimeout(() => {
+          cells.forEach((cell) => {
+            cell.classList.remove("x", "o");
+          });
+        }, 100);
+        let i = 0;
+        console.log(i++);
+        console.log("Ничья");
+        allStrings = false;
       }
     }
   }
