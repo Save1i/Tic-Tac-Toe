@@ -128,7 +128,34 @@ body {
   font-weight: 600;
 }
 
+.game__score {
+  min-width: 110px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.score__zone {
+  height: 100%;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.score__one {
+  left: -210px;
+  top: calc(100% / 2);
+}
+
+.score__two {
+  left: 400px;
+  top: calc(100% / 2);
+}
+
 .game__board {
+  position: relative;
   max-width: 400px;
   max-height: 400px;
   display: grid;
@@ -153,4 +180,20 @@ body {
   background-image: url(x.svg);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@media (max-width: 730px) {
+  .game__page {
+    gap: 150px;
+  }
+
+  .score__one {
+    left: 0px;
+    top: -100px;
+  }
+
+  .score__two {
+    left: 200px;
+    top: -100px;
+  }
 }
