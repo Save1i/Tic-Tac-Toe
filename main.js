@@ -72,6 +72,7 @@ function seeWhoWin() {
             infoZone.classList.add("invisible");
           });
         }, 600);
+        return;
       } else if (
         (a[0] == "o" && a[1] == "o" && a[2] == "o") ||
         (b[1][0] == "o" && b[2][0] == "o" && b[3][0] == "o") ||
@@ -93,6 +94,7 @@ function seeWhoWin() {
             infoZone.classList.add("invisible");
           });
         }, 600);
+        return;
       } else if (allStrings) {
         firstPlayer = 0;
         gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
@@ -108,6 +110,7 @@ function seeWhoWin() {
         console.log(i++);
         console.log("Ничья");
         allStrings = false;
+        return;
       }
     }
   }
