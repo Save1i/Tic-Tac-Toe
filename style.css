@@ -107,7 +107,25 @@ body {
   max-width: 600px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 60px;
+}
+
+.game__info-zone {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: calc(100vh / 2);
+  z-index: 10;
+  width: 100%;
+  backdrop-filter: blur(9px);
+  background: rgba(238, 234, 234, 0.2);
+  padding: 30px;
+}
+
+.info-zone__text {
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .game__board {

@@ -2,10 +2,10 @@ const welcomeBtn = document.querySelector("#welcome-btn");
 const welcomePage = document.querySelector(".welcome__page");
 const gamePage = document.querySelector(".game__page");
 const cells = document.querySelectorAll("#cell");
+const infoZone = document.querySelector("#infoZone");
+const infoZoneText = document.querySelector("#infoZoneText");
 
 let gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
-
-console.log(gameDeck[1][0]);
 let firstPlayer = 0;
 
 function gameDeckObject(dataX, cell) {
@@ -56,14 +56,17 @@ function seeWhoWin() {
         (b[1][0] == "x" && b[2][1] == "x" && b[3][2] == "x") ||
         (b[1][2] == "x" && b[2][1] == "x" && b[3][0] == "x")
       ) {
-        console.log("First player is Win!");
+        console.log("First player Win!");
         firstPlayer = 0;
         gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
+        infoZone.classList.remove("invisible");
+        infoZoneText.textContent = "Победил первый игрок!";
         setTimeout(() => {
           cells.forEach((cell) => {
             cell.classList.remove("x", "o");
+            infoZone.classList.add("invisible");
           });
-        }, 100);
+        }, 600);
       } else if (
         (a[0] == "o" && a[1] == "o" && a[2] == "o") ||
         (b[1][0] == "o" && b[2][0] == "o" && b[3][0] == "o") ||
@@ -72,22 +75,28 @@ function seeWhoWin() {
         (b[1][0] == "o" && b[2][1] == "o" && b[3][2] == "o") ||
         (b[1][2] == "o" && b[2][1] == "o" && b[3][0] == "o")
       ) {
-        console.log("Second player is Win!");
+        console.log("Second player Win!");
         firstPlayer = 0;
         gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
+        infoZone.classList.remove("invisible");
+        infoZoneText.textContent = "Победил второй игрок!";
         setTimeout(() => {
           cells.forEach((cell) => {
             cell.classList.remove("x", "o");
+            infoZone.classList.add("invisible");
           });
-        }, 100);
+        }, 600);
       } else if (allStrings) {
         firstPlayer = 0;
         gameDeck = { 1: [0, 1, 2], 2: [3, 4, 5], 3: [6, 7, 8] };
+        infoZone.classList.remove("invisible");
+        infoZoneText.textContent = "Ничья";
         setTimeout(() => {
           cells.forEach((cell) => {
             cell.classList.remove("x", "o");
+            infoZone.classList.add("invisible");
           });
-        }, 100);
+        }, 600);
         let i = 0;
         console.log(i++);
         console.log("Ничья");
